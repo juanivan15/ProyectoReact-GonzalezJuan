@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
+import NavBar from './components/NavBar/NavBar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 const App = () => {
-  let alumno = "Juan";
-  let curso = "React JS";
   return (
     <div>
-      <h1>Hola, mi nombre es {alumno}</h1>
-      <h2>Estoy en el curso de {curso}</h2>
+      <NavBar/>
+      <ItemListContainer greeting="Bienvenido a Mi Tienda Gamer"/>
     </div>
   )
 }
