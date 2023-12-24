@@ -1,0 +1,9 @@
+.btnCont{
+    background-color: blue;
+    border: solid black;
+    color: white;
+}
+.numContador{
+    font-size: 2rem;
+    color:black
+}
