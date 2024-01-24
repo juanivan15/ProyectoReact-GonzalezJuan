@@ -10,24 +10,24 @@ const NavBar = () => {
         <img src="../img/mi-tienda.png" alt="Mi tienda gamer" className='logoNavBar' />
       </Link>
 
-        <nav>
-            <ul>
-             <li>
-              <NavLink to="categoria/1">Perifericos</NavLink>
-             </li>
-             <li>
-              <NavLink to="categoria/2">Monitores</NavLink>
-             </li>
-             <li>
-              <NavLink to="categoria/3">Procesadores</NavLink>
-             </li>
-             <li>
-              <NavLink to="categoria/4">Placas de Video</NavLink>
-             </li>
-            </ul>
-        </nav>
+      <nav>
+        <ul>
+          <li>
+            <NavLink to="categoria/1">Perifericos</NavLink>
+          </li>
+          <li>
+            <NavLink to="categoria/2">Monitores</NavLink>
+          </li>
+          <li>
+            <NavLink to="categoria/3">Procesadores</NavLink>
+          </li>
+          <li>
+            <NavLink to="categoria/4">Placas de Video</NavLink>
+          </li>
+        </ul>
+      </nav>
 
-        <CartWidget/>
+      <CartWidget />
     </header>
   )
 }

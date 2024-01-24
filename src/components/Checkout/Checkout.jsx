@@ -2,9 +2,10 @@ import { useState, useEffect, useContext } from "react";
 import { CarritoContext } from "../../context/CarritoContext";
 import { db } from "../../services/config";
 import { collection, addDoc } from "firebase/firestore";
+import './Checkout.css';
 
 const Checkout = () => {
-    const {carrito, vaciarCarrito, total, cantidadTotal} = useContext(CarritoContext);
+    const { carrito, vaciarCarrito, total, cantidadTotal } = useContext(CarritoContext);
 
     const [nombre, setNombre] = useState("");
     const [apellido, setApellido] = useState("");
@@ -17,12 +18,12 @@ const Checkout = () => {
     const formDriver = (event) => {
         event.preventDefault();
 
-        if(!nombre || !apellido || !telefono || !email || !emailConfirmacion){
+        if (!nombre || !apellido || !telefono || !email || !emailConfirmacion) {
             setError("Por favor completa los campos!");
             return;
         }
 
-        if(email !== emailConfirmacion){
+        if (email !== emailConfirmacion) {
             setError("Los emails no coinciden");
             return;
         }
@@ -42,67 +43,68 @@ const Checkout = () => {
         }
 
         addDoc(collection(db, "orders"), order)
-        .then(docRef => {
-            setOrderId(docRef.id);
-            vaciarCarrito();
-        })
-        .catch(error => {
-            console.log("Error al crear la orden", error);
-            setError("No se pudo crear la orden. El codigo no es de la NASA.")
-        })
+            .then(docRef => {
+                setOrderId(docRef.id);
+                vaciarCarrito();
+            })
+            .catch(error => {
+                console.log("Error al crear la orden", error);
+                setError("No se pudo crear la orden. El codigo no es de la NASA.")
+            })
     }
 
 
 
-  return (
-    <div>
-        <h2>Checkout</h2>
-        <form onSubmit={formDriver}>
-            {
-                carrito.map( producto => (
-                    <div key={producto.item.id}>
-                        <p>{producto.item.nombre} X {producto.cantidad}</p>
-                        <p>Precio ${producto.item.precio}</p>
-                        <hr />
-                    </div>
-                ))
-            }
-            <hr />
-            <div>
-                <label htmlFor="">Nombre</label>
-                <input type="text" onChange={(e) => setNombre(e.target.value)} />
-            </div>
-            <div>
-                <label htmlFor="">Apellido</label>
-                <input type="text" onChange={(e) => setApellido(e.target.value)} />
-            </div>
-            <div>
-                <label htmlFor="">Telefono</label>
-                <input type="text" onChange={(e) => setTelefono(e.target.value)} />
-            </div>
-            <div>
-                <label htmlFor="">Email</label>
-                <input type="email" onChange={(e) => setEmail(e.target.value)} />
-            </div>
-            <div>
-                <label htmlFor="">Confirmación de email</label>
-                <input type="email" onChange={(e) => setEmailConfirmacion(e.target.value)} />
-            </div>
+    return (
+        <div>
+            <h2>Checkout</h2>
+            <form onSubmit={formDriver} className="formulario">
+                {
+                    carrito.map(producto => (
+                        <div key={producto.item.id}>
+                            <p>{producto.item.nombre} X {producto.cantidad}</p>
+                            <p>Precio unitario: ${producto.item.precio}</p>
+                            <hr />
+                        </div>
+                    ))
+                }
+                <p>Total a pagar: ${total}</p>
+                <hr />
+                <div className="form-group">
+                    <label htmlFor="">Nombre</label>
+                    <input type="text" onChange={(e) => setNombre(e.target.value)} />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="">Apellido</label>
+                    <input type="text" onChange={(e) => setApellido(e.target.value)} />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="">Telefono</label>
+                    <input type="text" onChange={(e) => setTelefono(e.target.value)} />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="">Email</label>
+                    <input type="email" onChange={(e) => setEmail(e.target.value)} />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="">Confirmación de email</label>
+                    <input type="email" onChange={(e) => setEmailConfirmacion(e.target.value)} />
+                </div>
 
-            {
-                error && <p style={{color: "red"}}> {error} </p>
-            }
+                {
+                    error && <p style={{ color: "red" }}> {error} </p>
+                }
 
-            <button type="submit">Finalizar Orden</button>
+                <button type="submit">Finalizar Orden</button>
 
-            {
-                orderId && (
-                    <strong>Gracias por su compra! Su órden es: {orderId}</strong>
-                )
-            }
-        </form>
-    </div>
-  )
+                {
+                    orderId && (
+                        <strong className="orderId">Gracias por su compra! Su órden es: {orderId}</strong>
+                    )
+                }
+            </form>
+        </div>
+    )
 }
 
 export default Checkout

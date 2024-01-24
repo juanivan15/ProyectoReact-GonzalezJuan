@@ -1,19 +1,22 @@
-header{
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 10px solid blue;
 }
-li{
+
+li {
     display: inline-block;
     margin: 10px;
     cursor: pointer;
 }
-li a{
+
+li a {
     text-decoration: none;
     text-transform: uppercase;
     color: rgb(0, 98, 147);
 }
-.logoNavBar{
+
+.logoNavBar {
     width: 120px;
 }

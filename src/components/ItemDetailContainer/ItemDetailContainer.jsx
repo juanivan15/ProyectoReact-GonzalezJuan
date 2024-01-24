@@ -6,25 +6,25 @@ import { getDoc, doc } from "firebase/firestore";
 
 
 const ItemDetailContainer = () => {
-    const [producto, setProducto] = useState(null);
+  const [producto, setProducto] = useState(null);
 
-    const {idItem} = useParams();
+  const { idItem } = useParams();
 
-    useEffect( () => {
-        const nuevoDoc = doc(db, "productos", idItem);
+  useEffect(() => {
+    const nuevoDoc = doc(db, "productos", idItem);
 
-        getDoc(nuevoDoc)
-        .then( res => {
-          const data = res.data();
-          const nuevoProducto = {id: res.id, ...data};
-          setProducto(nuevoProducto);
-        })
-        .catch(error => <h2>Esto no es muy majestuoso de tu parte.{error}</h2>)
-    }, [])
+    getDoc(nuevoDoc)
+      .then(res => {
+        const data = res.data();
+        const nuevoProducto = { id: res.id, ...data };
+        setProducto(nuevoProducto);
+      })
+      .catch(error => <h2>Esto no es muy majestuoso de tu parte.{error}</h2>)
+  }, [])
 
   return (
     <div>
-        <ItemDetail {...producto}/>
+      <ItemDetail {...producto} />
     </div>
   )
 }

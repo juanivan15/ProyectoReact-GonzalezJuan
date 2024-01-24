@@ -1,0 +1,53 @@
+.formulario {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.orderId {
+    display: block;
+    margin: 4rem;
+    padding: 2rem;
+    font-size: 2rem;
+    border: 1px solid black;
+    border-radius: 5px;
+
+}
+
+button {
+    background-color: rgb(65, 99, 168);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 20px;
+}
+
+p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}

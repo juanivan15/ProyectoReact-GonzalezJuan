@@ -1,9 +1,10 @@
-.btnCont{
+.btnCont {
     background-color: blue;
     border: solid black;
     color: white;
 }
-.numContador{
+
+.numContador {
     font-size: 2rem;
-    color:black
+    color: black
 }
