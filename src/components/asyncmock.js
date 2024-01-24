@@ -2,34 +2,38 @@
 const productos = [
   {
     id: "1",
-    nombre: "Teclado Redragon Kumara",
+    nombre: "Redragon Kumara K552",
     precio: 40000,
     img: "../img/teclado.jpg",
     idCat:"1",
+    descri: "El mejor teclado para usos multiples: jugar, codear, redactar. Tu mejor opción para introducirte al mundo gamer!",
     stock: 6
   },
   {
     id: "2",
-    nombre: "Auriculares Hyperx",
+    nombre: "Hyperx Cloud Alpha",
     precio: 50000,
     img: "../img/auris.webp",
-    idCat:"2",
+    idCat:"1",
+    descri: "Muy buena experiencia de sonido al mejor precio!",
     stock: 9
   },
   {
     id: "3",
-    nombre: "Mouse Logitech G305",
+    nombre: "Logitech G305",
     precio: 25000,
     img: "../img/mouse.jpg",
     idCat:"1",
+    descri: "Este mouse es sinónimo de confiabilidad y precisión, tu mejor opción!",
     stock: 4
   },
   {
     id: "4",
-    nombre: "Monitor Gigabyte",
+    nombre: "Gigabyte G24F",
     precio: 100000,
     img: "../img/monitor.jpg",
-    idCat:"1",
+    idCat:"2",
+    descri: "Un monitor con diversas configuraciones de gaming, lectura, cine, un verdadero todoterreno.",
     stock: 2
   }
 ]

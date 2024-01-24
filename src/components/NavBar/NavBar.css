@@ -9,3 +9,11 @@ li{
     margin: 10px;
     cursor: pointer;
 }
+li a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: rgb(0, 98, 147);
+}
+.logoNavBar{
+    width: 120px;
+}

@@ -1,25 +1,33 @@
 import './ItemListContainer.css';
 import { useState, useEffect } from "react";
-import { getProductos, getProductosPorCategoria } from "../asyncmock";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
+import { db } from '../../services/config';
+import {collection, getDocs, where, query} from "firebase/firestore";
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
 
-    const {idCategoria} = useParams();
+  const {idCategoria} = useParams();
 
-    useEffect( ()=> {
+  useEffect( () => {
+    const misProductos = idCategoria ? query(collection(db, "productos"), where("idCat", "==", idCategoria)) : collection(db, "productos");
 
-      const funcionProductos = idCategoria ? getProductosPorCategoria : getProductos;
+    getDocs(misProductos)
+    .then(res => {
+      const nuevosProductos = res.docs.map(doc => {
+        const data = doc.data();
+        return { id: doc.id, ...data}
+      })
+      setProductos(nuevosProductos);
+    })
+    .catch(error => <h2>Esto no es muy majestuoso de tu parte.{error}</h2> );
 
-      funcionProductos(idCategoria)
-        .then(respuesta => setProductos(respuesta))
-    }, [idCategoria])
+  }, [idCategoria])
 
   return (
     <div>
-      <h2> Bienvenido a Mi Tienda </h2>
+      <h2> Mira los productos que tenemos para vos! </h2>
       <ItemList productos = {productos} />
     </div>
   )
