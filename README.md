@@ -1,5 +1,5 @@
 # Mi Tienda Gamer
-Este es un proyecto de e-commerce básico que se utiliza para el curso de React en Coderhouse. La aplicación me permite ver una lista de productos para armar una computadora "gamer" y realizar compras en línea. Los productos y las órdenes de compra se almacenan en Firebase.
+Este es un proyecto de e-commerce básico que se utilizó para el curso de React en Coderhouse. La aplicación permite ver una lista de productos para armar una computadora "gamer" y realizar compras en línea. Los productos y las órdenes de compra se almacenan en Firebase.
 
 ## Tecnologías utilizadas.
 -React.
